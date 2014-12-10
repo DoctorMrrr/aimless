@@ -7506,6 +7506,7 @@ MonoBehaviour:
   backgrounds:
   - {fileID: 0}
   - {fileID: 0}
+  smoothing: 1
 --- !u!212 &1041560534
 SpriteRenderer:
   m_ObjectHideFlags: 0

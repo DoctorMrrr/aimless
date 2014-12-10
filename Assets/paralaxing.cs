@@ -23,7 +23,7 @@ public class paralaxing : MonoBehaviour {
 
 		//тут магія для усіх моїх фонів
 		parallaxScales = new float[backgrounds.Length];
-		for (int i = 0, i < backgrounds.Length, i++)
+		for (int i = 0; i < backgrounds.Length; i++)
 		{
 			parallaxScales[i] = backgrounds[i].position.z*-1;
 		}
