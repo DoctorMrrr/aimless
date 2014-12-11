@@ -5,6 +5,8 @@ public class shoot : MonoBehaviour {
 
 	public StarProjectile star;
 
+
+
 	// Use this for initialization
 	void Start () {
 	
@@ -18,5 +20,9 @@ public class shoot : MonoBehaviour {
 			newStar.transform.rotation = transform.rotation;
 			newStar.transform.position = transform.position;
 		}
+
+
+
+
 	}
 }
