@@ -28,6 +28,7 @@ public class flight : MonoBehaviour {
 						);
 						rigidbody2D.angularVelocity = difference * rotation_factor;
 				}
+		Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, Camera.main.transform.position.z);
 	}
 };
 	
