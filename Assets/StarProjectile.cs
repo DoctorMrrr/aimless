@@ -4,18 +4,18 @@ using System.Collections;
 public class StarProjectile : MonoBehaviour
 {
 	public float speed;
-
+	public float deathTime = 15f;
+	public float life;
 
 	void Start()
 	{
 		rigidbody2D.AddForce (transform.right * speed);
 	
-	  float deathTime = 3f;
+		deathTime = Time.time + life;;
 	}
 
          void FixedUpdate (){
 		float life = 10f;
-		vdeathTime = Time.time + life;
 		if (Time.time > deathTime)
 			Destroy(gameObject);
 
