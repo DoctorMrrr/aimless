@@ -14,14 +14,11 @@ public class StarProjectile : MonoBehaviour
 		deathTime = Time.time + life;;
 	}
 
-         void FixedUpdate (){
-		float life = 10f;
+    void FixedUpdate ()
+	{
 		if (Time.time > deathTime)
 			Destroy(gameObject);
-
-
-
-}
+	}
 }
 //Vector2 => (x, y)
 //Vector3 => (x, y, z)
