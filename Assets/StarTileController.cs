@@ -3,35 +3,49 @@ using System.Collections;
 
 public class StarTileController : MonoBehaviour
 {
-	public bool isCentral;
-	public StarTileManager manager;
-
-	// Use this for initialization
-	void Start () {
-		manager = transform.parent.GetComponent<StarTileManager> ();	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
-	void OnTriggerStay2D (Collider2D collider)
+	void OnTriggerExit2D (Collider2D collision)
 	{
-		if (!manager.centralTile.isCentral && collider.tag == "Player")
+		if (collision.tag == "Player")
 		{
-			isCentral = true;
-			manager.centralTile = this;
-			manager.Rearrange();
-		}
-	}
+            float stepsX = 0;
+            float stepsY = 0;
 
-	void OnTriggerExit2D (Collider2D collider)
-	{
-		if (collider.tag == "Player" && isCentral)
-		{
-			isCentral = false;
-			//manager.transform.position = (collider.transform.position - manager.transform.position).normalized * 100f;
+            if (collision.transform.position.x > collider2D.bounds.max.x)
+            {
+                stepsX = Mathf.Ceil(
+                    (
+                        Mathf.Abs(collision.transform.position.x - collider2D.bounds.center.x) - collider2D.bounds.extents.x
+                    ) / (collider2D.bounds.extents.x * 2f)
+                );
+            }
+            else if (collision.transform.position.x < collider2D.bounds.min.x)
+            {
+                stepsX = -Mathf.Ceil(
+                    (
+                        Mathf.Abs(collision.transform.position.x - collider2D.bounds.center.x) - collider2D.bounds.extents.x
+                    ) / (collider2D.bounds.extents.x * 2f)
+                );
+            }
+
+            if (collision.transform.position.y > collider2D.bounds.max.y)
+            {
+                stepsY = Mathf.Ceil(
+                    (
+                        Mathf.Abs(collision.transform.position.y - collider2D.bounds.center.y) - collider2D.bounds.extents.y
+                    ) / (collider2D.bounds.extents.y * 2f)
+                );
+            }
+            else if (collision.transform.position.y < collider2D.bounds.min.y)
+            {
+                stepsY = -Mathf.Ceil(
+                    (
+                        Mathf.Abs(collision.transform.position.y - collider2D.bounds.center.y) - collider2D.bounds.extents.y
+                    ) / (collider2D.bounds.extents.y * 2f)
+                );
+            }
+
+            Vector3 closestPoint = new Vector2(stepsX * collider2D.bounds.extents.x * 2f, stepsY * collider2D.bounds.extents.y * 2f);
+            transform.position += closestPoint;
 		}
 	}
 }

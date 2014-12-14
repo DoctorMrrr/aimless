@@ -20,9 +20,5 @@ public class shoot : MonoBehaviour {
 			newStar.transform.rotation = transform.rotation;
 			newStar.transform.position = transform.position;
 		}
-
-
-
-
 	}
 }
