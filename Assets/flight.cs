@@ -6,9 +6,12 @@ public class flight : MonoBehaviour {
 	public float flightSpeed;
 	public float rotation_factor = 1f;
 	public Direction direction;
+	public Animator animator;
+	public bool startengine = false;
 	// Use this for initialization
 	void Start () {
-	
+
+		animator = GetComponent<Animator>();
 	}
 
 	// Update is called once per frame
@@ -29,6 +32,21 @@ public class flight : MonoBehaviour {
 						rigidbody2D.angularVelocity = difference * rotation_factor;
 				}
 		Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, Camera.main.transform.position.z);
+
+		if(animator)
+		{
+
+			if  (Input.GetButtonDown("Horizontal"))
+		{
+
+			animator.SetBool("startengine", true );
+
+				
+		}
+		else {
+			animator.SetBool("startengine", false );
+		}
+		}
 	}
-};
+}
 	

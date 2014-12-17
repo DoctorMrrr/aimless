@@ -102,7 +102,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Size: {x: .333333343, y: .333333343}
+  m_Size: {x: .333333313, y: .333333313}
   m_Center: {x: 0, y: 0}
 --- !u!23 &120059664
 Renderer:
@@ -116,7 +116,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 76f06fad00f7f79479acc3088491f045, type: 2}
+  - {fileID: 2100000, guid: 32c1033f8d892654bbcec2afd84a9e2f, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -138,8 +138,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 120059662}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -40}
-  m_LocalScale: {x: 100, y: 100, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 70, y: 70, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -229,8 +229,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 472939370}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .600000024, y: -1.20000005, z: 0}
-  m_LocalScale: {x: 30, y: 30, z: 1}
+  m_LocalPosition: {x: .600000024, y: -1.20000005, z: 200}
+  m_LocalScale: {x: 300, y: 300, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -248,6 +248,7 @@ GameObject:
   - 58: {fileID: 793138576}
   - 114: {fileID: 793138578}
   - 95: {fileID: 793138579}
+  - 111: {fileID: 793138580}
   m_Layer: 0
   m_Name: ship
   m_TagString: Player
@@ -284,7 +285,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 793138572}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -300,8 +301,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cf1ff4542b194d4da6bec458714c9da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flightSpeed: 1
+  flightSpeed: 10
   rotation_factor: 6
+  animator: {fileID: 0}
+  startengine: 0
 --- !u!58 &793138576
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -350,11 +353,25 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 08fc172a3735cac4792e4612b7e754ac, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!111 &793138580
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 793138572}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 6309de6959b9f3347af1873d382af79c, type: 2}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 1
 --- !u!1 &1041560532
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,7 +400,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6467487bb2c8a7d4986be033678daefc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgrounds: []
+  backgrounds:
+  - {fileID: 472939375}
+  - {fileID: 120059666}
   smoothing: .100000001
 --- !u!212 &1041560534
 SpriteRenderer:
@@ -498,7 +517,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1076725359}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: -30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
